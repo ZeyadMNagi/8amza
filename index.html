@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+    <title>8amza</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h2>الغمزه <span id="nnnn">(new rules)</span></h2>
+        <h4 id="newRulesBtn" onclick="show()">القواعد <span>(اضغط)</span></h4>
+      </header>
+
+      <div id="game">
+        <div id="rules">
+          <h2>القواعد 📜</h2>
+          <p>
+            هي نفس لعبة الغمزه العادية بس الفرق ان في اربع شخصيات في اللعبة
+            <br /><br />
+          </p>
+
+          <hr />
+          <br />
+          <p>
+            <strong> الغماز </strong> 👁️: ودا الي بيكون معاه العين ودا الي
+            بيحاول يغمز لكل الاعبين
+            <br />
+            <strong> المحقق </strong> 🕵️: وده بيكون زي ظابط بالظبط بيحاول يقفش
+            الغماز باسرع وقت لو ما لحقش يقفش الغماز قبل ما الغماز يغمس الكل
+            بيكون عليه التخمين ما بين كل اللاعبين ولو اجابته غلط فهو بيزيد حرف
+            <br />
+            <strong> الجاسوس </strong> 🕶️: اهو ده بالظبط المرشد ده بيكون شغال مع
+            المحقق بدون علم المحقق بحيث انه يحاول لما يتغمز له من الغماز يحاول
+            يعرف المحقق بطريقه ما من غير ما يتقفش مين هو الغماس ولكن لو الجاسوس
+            اتقفش من اللاعبين يبقى المحقق جاسوس هيزيدوا حرف
+            <br />
+            <strong> اللاعبين </strong> 👥: وديروا مهمتهم ان هم يحاولوا يتغمز
+            لهم باسرع وقت ويقفشوا الجاسوس <br /><br />
+          </p>
+          <hr />
+          <br />
+          <p>
+            طريقه اللعب سهله وبسيطه التليفون بيتنقل ما بين كل واحد من اللاعبين
+            وكل واحد بيعرف هو شخصيته ايه سواء كان لاعب، محقق، جاسوس، أو الغماز
+          </p>
+          <button class="show" onclick="show()">👍 تمام 👍</button>
+        </div>
+        <div id="mode" class="none">
+          <h2>عايزيين تلعبو ازاي ؟</h2>
+          <button class="option" id="choose1" onclick="ok(false)">
+            👴 القديمة
+          </button>
+          <button class="option" id="choose2" onclick="ok(true)">
+            🆕 الجامدة جدا
+          </button>
+        </div>
+        <div id="playersNo">
+          <div id="war"><span>!!!</span> اقل عدد 3 لاعبين <span>!!!</span></div>
+          <h3>في كام لاعب</h3>
+          <input
+            type="number"
+            name="player"
+            id="player"
+            placeholder="No. Players"
+            onchange="showInputs(this.value)"
+          />
+          <div id="inputs"></div>
+          <button
+            type="submit"
+            id="submit"
+            onclick="start(document.getElementById('player').value)"
+          >
+            يلا بينا 🎮
+          </button>
+        </div>
+
+        <div id="r" class="none" style="display: none">
+          <h2 id="pass">ودي للبعدو 😉</h2>
+          <h2 id="name">يا ( <span id="id"></span> )</h2>
+          <h2 id="type">أنت <span id="types"></span></h2>
+          <button id="nextBtn" onclick="next()">ألي بعدو ▶️</button>
+        </div>
+
+        <div id="timer" class="none" style="display: none">
+          <div id="timerSection" style="display: none">
+            <div
+              class="circular-progress"
+              data-inner-circle-color="lightgrey"
+              data-progress-color="green"
+              data-bg-color="black"
+            >
+              <div class="inner-circle"></div>
+              <p class="percentage"></p>
+            </div>
+            <button id="finish" class="show">خلصتو بدري</button>
+          </div>
+        </div>
+
+        <div id="lose" class="none" style="display: none">
+          <h2>مين الي خسر</h2>
+          <div class="btns">
+            <button onclick="lose(true)" id="imp">غماز ❌</button>
+            <button onclick="lose(false)" id="det">محقق ❌</button>
+          </div>
+          <div id="playerLo">
+            <label for="players">واحد من الاعبين</label
+            ><select name="players" id="players"></select
+            ><button
+              type="submit"
+              style="background: black"
+              onclick="playerLose()"
+            >
+              هو دا ✅
+            </button>
+          </div>
+        </div>
+
+        <div id="dash" class="none" style="display: none">
+          <h1 id="loser"></h1>
+          <div id="ul"></div>
+          <button
+            class="show"
+            onclick="play(document.getElementById('player').value)"
+          >
+            الدور الي بعدو ▶️
+          </button>
+          <button id="new" class="show" onclick="newGame()">
+            فوره جديدة 🔄
+          </button>
+          <button id="new" class="show" onclick="change()">
+            نغير المود 🔃
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/vars.js"></script>
+    <script src="./js/play.js"></script>
+    <script src="./js/timer.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
