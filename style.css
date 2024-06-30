@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
   padding: 0;
   margin: 0;
@@ -10,28 +11,22 @@ body {
   background: #1c1c1c;
 }
 
+/* Root Variables */
 :root {
   --progress-bar-width: 200px;
   --progress-bar-height: 200px;
   --font-size: 2rem;
 }
 
-button {
-  color: #e2e8ce;
-  border: none;
-  padding: 10px 20px;
-  margin: 15px;
-  cursor: pointer;
-  font-size: 26px;
-  border-radius: 10px;
-}
-
+/* Container Styles */
 .container {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
+
+/* Header Styles */
 header {
   display: flex;
   justify-content: space-around;
@@ -39,15 +34,54 @@ header {
   padding: 10px;
   font-size: 30px;
   color: #e0e0e0;
-  span {
-    font-size: 20px;
-  }
-  h4 {
-    cursor: pointer;
-    display: none;
-  }
 }
 
+header span {
+  font-size: 20px;
+}
+
+header h4 {
+  cursor: pointer;
+  display: none;
+}
+
+/* Game Section */
+#game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #e0e0e0;
+}
+
+/* Rules Section */
+#rules {
+  display: none;
+  width: 50%;
+  padding: 50px;
+  color: #e0e0e0;
+}
+
+/* Mode Selection */
+#mode.none {
+  padding: 150px 100px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.option {
+  background: #222;
+  border: 3px solid #333;
+}
+
+.option:hover {
+  opacity: 0.8;
+}
+
+/* Players Number Section */
 #playersNo {
   display: none;
   padding: 60px;
@@ -60,65 +94,15 @@ header {
   font-size: 46px;
   width: 50%;
   color: #e0e0e0;
-  * {
-    padding: 5px;
-    margin: 8px;
-  }
-  h3 {
-    font-size: 40px;
-  }
 }
 
-.none {
-  /* display: none; */
-  padding: 150px 100px;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  font-size: xx-large;
+#playersNo * {
+  padding: 5px;
+  margin: 8px;
 }
 
-#game {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #e0e0e0;
-}
-
-#rules {
-  display: none;
-  width: 50%;
-  padding: 50px;
-  color: #e0e0e0;
-}
-
-#name,
-#type {
-  display: none;
-}
-#submit {
-  color: #151515;
-}
-#nextBtn,
-.show,
-.option {
-  background: #222;
-  border: 3px solid #333;
-  &:hover {
-    opacity: 0.8;
-  }
-}
-#imp {
-  background: #f00;
-}
-#det {
-  background: #00f;
-}
-
-#ul {
-  text-align: right;
+#playersNo h3 {
+  font-size: 40px;
 }
 
 #war {
@@ -131,52 +115,59 @@ header {
   border: 2px solid;
 }
 
-#inputs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  * {
-    padding: 0;
-    margin: 0;
-  }
-}
-.holder {
-  display: flex;
+/* Hidden Sections */
+.none {
+  padding: 150px 100px;
+  justify-content: center;
   flex-direction: column;
-  font-size: small;
-  text-align: right;
-  width: 45%;
-}
-
-label {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.PlayerName {
-  margin: 8px 0 !important;
-}
-
-#players {
-  margin: 15px;
-  padding: 5px;
-  font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-#playerLo {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.btns {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  * {
-    font-size: 20px;
-  }
+  text-align: center;
+  font-size: xx-large;
+}
+
+/* Input and Button Specific Styles */
+#name,
+#type {
+  display: none;
+}
+
+#submit {
+  color: #151515;
+}
+
+/* R Section */
+#r.none {
+  display: none;
+}
+
+#pass {
+  font-size: 2rem;
+}
+
+#name {
+  font-size: 2rem;
+}
+
+#type {
+  font-size: 2rem;
+}
+
+#nextBtn {
+  background: #222;
+  border: 3px solid #333;
+}
+
+#nextBtn:hover {
+  opacity: 0.8;
+}
+
+/* Timer Section */
+#timer.none {
+  display: none;
+}
+
+#timerSection {
+  display: none;
 }
 
 .circular-progress {
@@ -186,31 +177,89 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
+
 .inner-circle {
-  position: absolute;
   width: calc(var(--progress-bar-width) - 30px);
   height: calc(var(--progress-bar-height) - 30px);
   border-radius: 50%;
   background-color: lightgrey;
+  position: absolute;
 }
 
 .percentage {
-  position: relative;
   font-size: var(--font-size);
-  color: rgb(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.8);
+  position: relative;
 }
 
+.show {
+  background: #222;
+  border: 3px solid #333;
+}
+
+.show:hover {
+  opacity: 0.8;
+}
+
+/* Lose Section */
+#lose.none {
+  display: none;
+}
+
+#imp {
+  background: #f00;
+}
+
+#det {
+  background: #00f;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btns * {
+  font-size: 20px;
+}
+
+#playerLo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#players {
+  margin: 15px;
+  padding: 5px;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Dash Section */
+#dash.none {
+  display: none;
+}
+
+#ul {
+  text-align: right;
+}
+
+/* Responsive Styles */
 @media screen and (max-width: 460px) {
   header {
-    display: flex;
     flex-direction: column;
     font-size: 20px;
     text-align: center;
-    span {
-      font-size: 15px;
-    }
   }
+
+  header span {
+    font-size: 15px;
+  }
+
   .option {
     width: 80%;
   }
@@ -218,18 +267,22 @@ label {
   #rules {
     width: 100%;
   }
+
   #dash {
     padding: 20px;
   }
+
   .none {
     padding: 35% 0 0;
     font-size: x-large;
   }
+
   #playersNo {
     width: 90%;
     padding: 20px;
     margin: 32px 0 0;
   }
+
   #war {
     font-size: 18px;
   }
